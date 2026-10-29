@@ -1,0 +1,1081 @@
+{
+  "uitgevoerd_utc": "2026-10-28T20:37:08.963889+00:00",
+  "omgeving": {
+    "os": "Windows",
+    "architectuur": "AMD64",
+    "python": "3.12.15",
+    "pakketten": {
+      "neo4j": "6.4.1",
+      "psycopg": "3.3.6",
+      "neo4j-graphrag": "1.23.0",
+      "ollama": "0.6.3",
+      "matplotlib": "3.11.2",
+      "nbconvert": "7.17.2",
+      "ipykernel": "7.4.0"
+    },
+    "modelopties": {
+      "temperature": 0,
+      "num_ctx": 8192,
+      "num_predict": 400,
+      "think": false
+    },
+    "llm": {
+      "naam": "gemma4:26b",
+      "digest": "08ae7ec1744bd7f451c4a530afb39d2673ad9d07a8369b8a33a3613b41212a68"
+    }
+  },
+  "datacontrole": {
+    "personen": 4,
+    "films": 4,
+    "deelnames": 7,
+    "inhoud_gelijk": true
+  },
+  "databases": {
+    "sql": [
+      {
+        "person_id": "P28",
+        "name": "Amir"
+      }
+    ],
+    "cypher": [
+      {
+        "person_id": "P28",
+        "name": "Amir"
+      }
+    ],
+    "postgres_plan": {
+      "Plan": {
+        "Node Type": "Unique",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 3.31,
+        "Total Cost": 3.33,
+        "Plan Rows": 2,
+        "Plan Width": 9,
+        "Actual Startup Time": 0.046,
+        "Actual Total Time": 0.049,
+        "Actual Rows": 1.0,
+        "Actual Loops": 1,
+        "Disabled": false,
+        "Shared Hit Blocks": 3,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Sort",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 3.31,
+            "Total Cost": 3.32,
+            "Plan Rows": 2,
+            "Plan Width": 9,
+            "Actual Startup Time": 0.046,
+            "Actual Total Time": 0.048,
+            "Actual Rows": 1.0,
+            "Actual Loops": 1,
+            "Disabled": false,
+            "Sort Key": [
+              "collega.name",
+              "collega.person_id"
+            ],
+            "Sort Method": "quicksort",
+            "Sort Space Used": 25,
+            "Sort Space Type": "Memory",
+            "Shared Hit Blocks": 3,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Hash Join",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Join Type": "Inner",
+                "Startup Cost": 2.19,
+                "Total Cost": 3.3,
+                "Plan Rows": 2,
+                "Plan Width": 9,
+                "Actual Startup Time": 0.04,
+                "Actual Total Time": 0.043,
+                "Actual Rows": 1.0,
+                "Actual Loops": 1,
+                "Disabled": false,
+                "Inner Unique": true,
+                "Hash Cond": "(samen.person_id = collega.person_id)",
+                "Shared Hit Blocks": 3,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Hash Join",
+                    "Parent Relationship": "Outer",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Join Type": "Inner",
+                    "Startup Cost": 1.1,
+                    "Total Cost": 2.21,
+                    "Plan Rows": 2,
+                    "Plan Width": 4,
+                    "Actual Startup Time": 0.019,
+                    "Actual Total Time": 0.021,
+                    "Actual Rows": 2.0,
+                    "Actual Loops": 1,
+                    "Disabled": false,
+                    "Inner Unique": true,
+                    "Hash Cond": "(samen.movie_id = noor.movie_id)",
+                    "Shared Hit Blocks": 2,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0,
+                    "Plans": [
+                      {
+                        "Node Type": "Seq Scan",
+                        "Parent Relationship": "Outer",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Relation Name": "acted_in",
+                        "Alias": "samen",
+                        "Startup Cost": 0.0,
+                        "Total Cost": 1.07,
+                        "Plan Rows": 7,
+                        "Plan Width": 7,
+                        "Actual Startup Time": 0.005,
+                        "Actual Total Time": 0.006,
+                        "Actual Rows": 7.0,
+                        "Actual Loops": 1,
+                        "Disabled": false,
+                        "Shared Hit Blocks": 1,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0
+                      },
+                      {
+                        "Node Type": "Hash",
+                        "Parent Relationship": "Inner",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Startup Cost": 1.09,
+                        "Total Cost": 1.09,
+                        "Plan Rows": 1,
+                        "Plan Width": 3,
+                        "Actual Startup Time": 0.007,
+                        "Actual Total Time": 0.007,
+                        "Actual Rows": 1.0,
+                        "Actual Loops": 1,
+                        "Disabled": false,
+                        "Hash Buckets": 1024,
+                        "Original Hash Buckets": 1024,
+                        "Hash Batches": 1,
+                        "Original Hash Batches": 1,
+                        "Peak Memory Usage": 9,
+                        "Shared Hit Blocks": 1,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0,
+                        "Plans": [
+                          {
+                            "Node Type": "Seq Scan",
+                            "Parent Relationship": "Outer",
+                            "Parallel Aware": false,
+                            "Async Capable": false,
+                            "Relation Name": "acted_in",
+                            "Alias": "noor",
+                            "Startup Cost": 0.0,
+                            "Total Cost": 1.09,
+                            "Plan Rows": 1,
+                            "Plan Width": 3,
+                            "Actual Startup Time": 0.005,
+                            "Actual Total Time": 0.005,
+                            "Actual Rows": 1.0,
+                            "Actual Loops": 1,
+                            "Disabled": false,
+                            "Filter": "(person_id = 'P27'::text)",
+                            "Rows Removed by Filter": 6,
+                            "Shared Hit Blocks": 1,
+                            "Shared Read Blocks": 0,
+                            "Shared Dirtied Blocks": 0,
+                            "Shared Written Blocks": 0,
+                            "Local Hit Blocks": 0,
+                            "Local Read Blocks": 0,
+                            "Local Dirtied Blocks": 0,
+                            "Local Written Blocks": 0,
+                            "Temp Read Blocks": 0,
+                            "Temp Written Blocks": 0
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Node Type": "Hash",
+                    "Parent Relationship": "Inner",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Startup Cost": 1.05,
+                    "Total Cost": 1.05,
+                    "Plan Rows": 3,
+                    "Plan Width": 9,
+                    "Actual Startup Time": 0.014,
+                    "Actual Total Time": 0.015,
+                    "Actual Rows": 3.0,
+                    "Actual Loops": 1,
+                    "Disabled": false,
+                    "Hash Buckets": 1024,
+                    "Original Hash Buckets": 1024,
+                    "Hash Batches": 1,
+                    "Original Hash Batches": 1,
+                    "Peak Memory Usage": 9,
+                    "Shared Hit Blocks": 1,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0,
+                    "Plans": [
+                      {
+                        "Node Type": "Seq Scan",
+                        "Parent Relationship": "Outer",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Relation Name": "person",
+                        "Alias": "collega",
+                        "Startup Cost": 0.0,
+                        "Total Cost": 1.05,
+                        "Plan Rows": 3,
+                        "Plan Width": 9,
+                        "Actual Startup Time": 0.01,
+                        "Actual Total Time": 0.011,
+                        "Actual Rows": 3.0,
+                        "Actual Loops": 1,
+                        "Disabled": false,
+                        "Filter": "(person_id <> 'P27'::text)",
+                        "Rows Removed by Filter": 1,
+                        "Shared Hit Blocks": 1,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "Planning": {
+        "Shared Hit Blocks": 0,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      },
+      "Planning Time": 0.21,
+      "Triggers": [],
+      "Execution Time": 0.091
+    },
+    "neo4j_plan": {
+      "args": {
+        "Order": "name ASC, person_id ASC",
+        "GlobalMemory": 1344,
+        "planner-impl": "IDP",
+        "Memory": 0,
+        "string-representation": "Cypher 25\r\n\r\nPlanner COST\r\n\r\nRuntime PIPELINED\r\n\r\nRuntime version 2026.10.1\r\n\r\nBatch size 128\r\n\r\n+----------------------+----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+------------------------+-----------+-------------------------+---------------------+---------------------+\r\n| Operator             | Id | Details                                                                                         | Estimated Rows | Rows | DB Hits | Memory (Bytes) | Page Cache Hits/Misses | Time (ms) | Ordered by              | Pipeline            | Indexes Used        |\r\n+----------------------+----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+------------------------+-----------+-------------------------+---------------------+---------------------+\r\n| +ProduceResults      |  0 | person_id, name                                                                                 |              0 |    1 |       0 |              0 |                    0/0 |     0,047 |                         |                     |                     |\r\n| |                    +----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+------------------------+-----------+                         |                     +---------------------+\r\n| +Sort                |  1 | name ASC, person_id ASC                                                                         |              0 |    1 |       0 |            616 |                    0/0 |     7,595 | name ASC, person_id ASC | In Pipeline 1       |                     |\r\n| |                    +----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+------------------------+-----------+-------------------------+---------------------+---------------------+\r\n| +Distinct            |  2 | cache[collega.person_id] AS person_id, collega.name AS name                                     |              0 |    1 |       2 |            392 |                        |           |                         |                     |                     |\r\n| |                    +----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+                        |           +-------------------------+                     +---------------------+\r\n| +Filter              |  3 | NOT anon_2 = anon_0 AND NOT cache[collega.person_id] = cache[noor.person_id] AND collega:Person |              0 |    1 |       4 |                |                        |           |                         |                     |                     |\r\n| |                    +----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+                        |           +-------------------------+                     +---------------------+\r\n| +Expand(All)         |  4 | (anon_1)<-[anon_2:ACTED_IN]-(collega)                                                           |              0 |    2 |       3 |                |                        |           |                         |                     |                     |\r\n| |                    +----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+                        |           +-------------------------+                     +---------------------+\r\n| +Filter              |  5 | anon_1:Movie                                                                                    |              0 |    1 |       2 |                |                        |           |                         |                     |                     |\r\n| |                    +----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+                        |           +-------------------------+                     +---------------------+\r\n| +Expand(All)         |  6 | (noor)-[anon_0:ACTED_IN]->(anon_1)                                                              |              0 |    1 |       1 |                |                        |           |                         |                     |                     |\r\n| |                    +----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+                        |           +-------------------------+                     +---------------------+\r\n| +NodeUniqueIndexSeek |  7 | UNIQUE noor:Person(person_id) WHERE person_id = $autostring_0, cache[noor.person_id]            |              0 |    1 |       2 |            376 |                    2/0 |    12,324 |                         | Fused in Pipeline 0 | person_id_unique: 1 |\r\n+----------------------+----+-------------------------------------------------------------------------------------------------+----------------+------+---------+----------------+------------------------+-----------+-------------------------+---------------------+---------------------+\r\n\r\nTotal database accesses: 14, total allocated memory: 1344\r\n",
+        "runtime": "PIPELINED",
+        "Time": 47200,
+        "runtime-impl": "PIPELINED",
+        "version": "25",
+        "DbHits": 0,
+        "batch-size": 128,
+        "Details": "person_id, name",
+        "planner-version": "2026.10.1",
+        "PipelineInfo": "In Pipeline 1",
+        "runtime-version": "2026.10.1",
+        "Id": 0,
+        "EstimatedRows": 0.011233096875,
+        "planner": "COST",
+        "PageCacheMisses": 0,
+        "Rows": 1,
+        "PageCacheHits": 0
+      },
+      "pageCacheMisses": 0,
+      "children": [
+        {
+          "args": {
+            "Order": "name ASC, person_id ASC",
+            "Details": "name ASC, person_id ASC",
+            "PipelineInfo": "In Pipeline 1",
+            "Memory": 616,
+            "Time": 7595302,
+            "Id": 1,
+            "EstimatedRows": 0.011233096875,
+            "PageCacheMisses": 0,
+            "DbHits": 0,
+            "Rows": 1,
+            "PageCacheHits": 0
+          },
+          "pageCacheMisses": 0,
+          "children": [
+            {
+              "args": {
+                "Details": "cache[collega.person_id] AS person_id, collega.name AS name",
+                "Memory": 392,
+                "PipelineInfo": "Fused in Pipeline 0",
+                "Id": 2,
+                "EstimatedRows": 0.011233096875,
+                "DbHits": 2,
+                "Rows": 1
+              },
+              "children": [
+                {
+                  "args": {
+                    "Id": 3,
+                    "Details": "NOT anon_2 = anon_0 AND NOT cache[collega.person_id] = cache[noor.person_id] AND collega:Person",
+                    "EstimatedRows": 0.0118243125,
+                    "PipelineInfo": "Fused in Pipeline 0",
+                    "DbHits": 4,
+                    "Rows": 1
+                  },
+                  "children": [
+                    {
+                      "args": {
+                        "Id": 4,
+                        "Details": "(anon_1)<-[anon_2:ACTED_IN]-(collega)",
+                        "EstimatedRows": 0.1225,
+                        "PipelineInfo": "Fused in Pipeline 0",
+                        "DbHits": 3,
+                        "Rows": 2
+                      },
+                      "children": [
+                        {
+                          "args": {
+                            "Id": 5,
+                            "Details": "anon_1:Movie",
+                            "EstimatedRows": 0.17500000000000002,
+                            "PipelineInfo": "Fused in Pipeline 0",
+                            "DbHits": 2,
+                            "Rows": 1
+                          },
+                          "children": [
+                            {
+                              "args": {
+                                "Id": 6,
+                                "Details": "(noor)-[anon_0:ACTED_IN]->(anon_1)",
+                                "EstimatedRows": 0.17500000000000002,
+                                "PipelineInfo": "Fused in Pipeline 0",
+                                "DbHits": 1,
+                                "Rows": 1
+                              },
+                              "children": [
+                                {
+                                  "args": {
+                                    "Details": "UNIQUE noor:Person(person_id) WHERE person_id = $autostring_0, cache[noor.person_id]",
+                                    "PipelineInfo": "Fused in Pipeline 0",
+                                    "Memory": 376,
+                                    "Time": 12323600,
+                                    "Id": 7,
+                                    "UsedIndexes": "person_id_unique: 1",
+                                    "EstimatedRows": 0.25,
+                                    "PageCacheMisses": 0,
+                                    "DbHits": 2,
+                                    "Rows": 1,
+                                    "PageCacheHits": 2
+                                  },
+                                  "pageCacheMisses": 0,
+                                  "dbHits": 2,
+                                  "identifiers": [
+                                    "noor"
+                                  ],
+                                  "operatorType": "NodeUniqueIndexSeek@film-demo",
+                                  "time": 12323600,
+                                  "rows": 1,
+                                  "pageCacheHitRatio": 1.0,
+                                  "pageCacheHits": 2
+                                }
+                              ],
+                              "dbHits": 1,
+                              "identifiers": [
+                                "noor",
+                                "anon_0",
+                                "anon_1"
+                              ],
+                              "operatorType": "Expand(All)@film-demo",
+                              "rows": 1
+                            }
+                          ],
+                          "dbHits": 2,
+                          "identifiers": [
+                            "noor",
+                            "anon_0",
+                            "anon_1"
+                          ],
+                          "operatorType": "Filter@film-demo",
+                          "rows": 1
+                        }
+                      ],
+                      "dbHits": 3,
+                      "identifiers": [
+                        "noor",
+                        "anon_2",
+                        "collega",
+                        "anon_0",
+                        "anon_1"
+                      ],
+                      "operatorType": "Expand(All)@film-demo",
+                      "rows": 2
+                    }
+                  ],
+                  "dbHits": 4,
+                  "identifiers": [
+                    "noor",
+                    "anon_2",
+                    "collega",
+                    "anon_0",
+                    "anon_1"
+                  ],
+                  "operatorType": "Filter@film-demo",
+                  "rows": 1
+                }
+              ],
+              "dbHits": 2,
+              "identifiers": [
+                "person_id",
+                "name"
+              ],
+              "operatorType": "Distinct@film-demo",
+              "rows": 1
+            }
+          ],
+          "dbHits": 0,
+          "identifiers": [
+            "person_id",
+            "name"
+          ],
+          "operatorType": "Sort@film-demo",
+          "time": 7595302,
+          "rows": 1,
+          "pageCacheHitRatio": 0.0,
+          "pageCacheHits": 0
+        }
+      ],
+      "dbHits": 0,
+      "identifiers": [
+        "person_id",
+        "name"
+      ],
+      "operatorType": "ProduceResults@film-demo",
+      "time": 47200,
+      "rows": 1,
+      "pageCacheHitRatio": 0.0,
+      "pageCacheHits": 0
+    },
+    "postgres_version": "18.6",
+    "neo4j_components": [
+      {
+        "name": "Neo4j Kernel",
+        "versions": [
+          "2026.10.1"
+        ],
+        "edition": "enterprise"
+      },
+      {
+        "name": "Cypher",
+        "versions": [
+          "5",
+          "25"
+        ],
+        "edition": ""
+      }
+    ]
+  },
+  "zoekindexen": {
+    "dimensie": 768,
+    "model": "embeddinggemma:latest",
+    "modeldigest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+    "films": [
+      {
+        "film": "M1",
+        "dimensie": 768,
+        "model": "embeddinggemma:latest",
+        "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      {
+        "film": "M2",
+        "dimensie": 768,
+        "model": "embeddinggemma:latest",
+        "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      {
+        "film": "M3",
+        "dimensie": 768,
+        "model": "embeddinggemma:latest",
+        "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      },
+      {
+        "film": "M4",
+        "dimensie": 768,
+        "model": "embeddinggemma:latest",
+        "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1"
+      }
+    ],
+    "indexen": [
+      {
+        "name": "film_vector",
+        "type": "VECTOR",
+        "labelsOrTypes": [
+          "Movie"
+        ],
+        "properties": [
+          "embedding"
+        ],
+        "options": {
+          "indexConfig": {
+            "vector.dimensions": 768,
+            "vector.default_search_expansion_factor": 3.0,
+            "vector.hnsw.m": 16,
+            "vector.quantization.type": "BINARY",
+            "vector.similarity_function": "COSINE",
+            "vector.hnsw.ef_construction": 100
+          }
+        },
+        "state": "ONLINE"
+      },
+      {
+        "name": "movie_text",
+        "type": "FULLTEXT",
+        "labelsOrTypes": [
+          "Movie"
+        ],
+        "properties": [
+          "title",
+          "samenvatting"
+        ],
+        "options": {
+          "indexConfig": {
+            "fulltext.analyzer": "standard-no-stop-words",
+            "fulltext.eventually_consistent": false
+          }
+        },
+        "state": "ONLINE"
+      }
+    ]
+  },
+  "retrieval": {
+    "model": "gemma4:26b",
+    "modeldigest": "08ae7ec1744bd7f451c4a530afb39d2673ad9d07a8369b8a33a3613b41212a68",
+    "embeddingmodel": "embeddinggemma:latest",
+    "top_k": 2,
+    "schema_voor_Text2Cypher": "Node properties:\nPerson {person_id: STRING, name: STRING}\nMovie {movie_id: STRING, title: STRING, genre: STRING, samenvatting: STRING, source_id: STRING, embedding: LIST<FLOAT>}\nRelationships:\n(:Person)-[:ACTED_IN]->(:Movie)\nConstraints: Person.person_id is uniek; Movie.movie_id is uniek.\nGenre is een property; er bestaat geen Genre-label.\nZakelijke identifier voor Noor in deze demo: P27. Dit is geen interne Neo4j-ID.",
+    "routes": {
+      "Vector": {
+        "vraag": "Welke films gaan over iemand die onder een andere identiteit leeft? Leg uit waarom.",
+        "config": {
+          "top_k": 2
+        },
+        "zoekqueries": [
+          {
+            "cypher": "CYPHER 25 MATCH (node:`Movie`) SEARCH node IN (VECTOR INDEX `film_vector` FOR $query_vector LIMIT $top_k * $effective_search_ratio) SCORE AS score WITH node, score ORDER BY score DESC LIMIT $top_k RETURN node {.movie_id, .title, .genre, .samenvatting, .source_id} AS node, labels(node) AS nodeLabels, elementId(node) AS elementId, elementId(node) AS id, score",
+            "parameters": {
+              "top_k": 2,
+              "effective_search_ratio": 1,
+              "vector_index_name": "film_vector",
+              "query_vector": {
+                "vector_dimensie": 768,
+                "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+              }
+            }
+          }
+        ],
+        "items": [
+          {
+            "content": "{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 0.7517247200012207, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}",
+            "metadata": {
+              "movie_id": "M4",
+              "source_id": "S4",
+              "score": 0.7517247200012207
+            }
+          },
+          {
+            "content": "{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.7513083815574646, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+            "metadata": {
+              "movie_id": "M2",
+              "source_id": "S2",
+              "score": 0.7513083815574646
+            }
+          }
+        ],
+        "metadata": {
+          "query_vector": {
+            "vector_dimensie": 768,
+            "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+          },
+          "__retriever": "VectorRetriever"
+        },
+        "exacte_context": "{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 0.7517247200012207, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}\n{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.7513083815574646, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+        "modelcalls": [
+          {
+            "input": [
+              {
+                "role": "system",
+                "content": "Je beantwoordt Nederlandse vragen over fictieve films. Gebruik uitsluitend de meegeleverde broncontext.\nGeef maximaal 100 woorden: eerst het antwoord, daarna de onderbouwing met bron-ID's zoals [S2].\nVerzin geen castleden of relaties. Een ontbrekende relatie in de context betekent: onvoldoende bewijs voor die voorwaarde.\nsource_id onderbouwt de gevonden film; gedeelde_bron onderbouwt de gedeelde_film en de samenwerking daarin.\nEen acteur mag in een andere gedeelde film met Noor hebben gespeeld; Noor hoeft niet in de gevonden film te spelen.\nEen thematisch passende samenvatting bewijst geen samenwerking. Geef bij ontbrekend relatiebewijs dat expliciet aan."
+              },
+              {
+                "role": "user",
+                "content": "BRONCONTEXT (JSON-regels, letterlijk opgehaald):\n{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 0.7517247200012207, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}\n{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.7513083815574646, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}\nEINDE BRONCONTEXT\nVoorbeelden: \nBEANTWOORD NU DEZE VRAAG:\nWelke films gaan over iemand die onder een andere identiteit leeft? Leg uit waarom."
+              }
+            ],
+            "system_instruction": null,
+            "output": "De films \"Schaduwspel\" en \"Tweede Naam\" gaan over iemand die onder een andere identiteit leeft.\n\nIn \"Schaduwspel\" neemt een koerier een andere naam aan om de dader te vinden die zijn identiteit gebruikt [S4]. In \"Tweede Naam\" bouwt een vrouw een nieuw leven op onder andermans naam na een vlucht [S2]."
+          }
+        ],
+        "antwoord": "De films \"Schaduwspel\" en \"Tweede Naam\" gaan over iemand die onder een andere identiteit leeft.\n\nIn \"Schaduwspel\" neemt een koerier een andere naam aan om de dader te vinden die zijn identiteit gebruikt [S4]. In \"Tweede Naam\" bouwt een vrouw een nieuw leven op onder andermans naam na een vlucht [S2]."
+      },
+      "Hybrid": {
+        "vraag": "Welke films gaan over iemand die onder een andere identiteit leeft? Leg uit waarom.",
+        "config": {
+          "top_k": 2
+        },
+        "zoekqueries": [
+          {
+            "cypher": "CYPHER 25 CALL () { MATCH (node:`Movie`) SEARCH node IN (VECTOR INDEX `film_vector` FOR $query_vector LIMIT $top_k * $effective_search_ratio) SCORE AS score WITH collect({node:node, score:score}) AS nodes, max(score) AS vector_index_max_score UNWIND nodes AS n RETURN n.node AS node, (n.score / vector_index_max_score) AS score UNION CALL db.index.fulltext.queryNodes($fulltext_index_name, $query_text, {limit: $top_k}) YIELD node, score WITH collect({node:node, score:score}) AS nodes, max(score) AS ft_index_max_score UNWIND nodes AS n RETURN n.node AS node, (n.score / ft_index_max_score) AS score } WITH node, max(score) AS score ORDER BY score DESC LIMIT $top_k RETURN node {.movie_id, .title, .genre, .samenvatting, .source_id} AS node, labels(node) AS nodeLabels, elementId(node) AS elementId, elementId(node) AS id, score",
+            "parameters": {
+              "query_text": "Welke films gaan over iemand die onder een andere identiteit leeft? Leg uit waarom.",
+              "top_k": 2,
+              "effective_search_ratio": 1,
+              "vector_index_name": "film_vector",
+              "fulltext_index_name": "movie_text",
+              "query_vector": {
+                "vector_dimensie": 768,
+                "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+              }
+            }
+          }
+        ],
+        "items": [
+          {
+            "content": "{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 1.0, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}",
+            "metadata": {
+              "movie_id": "M4",
+              "source_id": "S4",
+              "score": 1.0
+            }
+          },
+          {
+            "content": "{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.999446155710091, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+            "metadata": {
+              "movie_id": "M2",
+              "source_id": "S2",
+              "score": 0.999446155710091
+            }
+          }
+        ],
+        "metadata": {
+          "query_vector": {
+            "vector_dimensie": 768,
+            "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+          },
+          "__retriever": "HybridRetriever"
+        },
+        "exacte_context": "{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 1.0, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}\n{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.999446155710091, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+        "modelcalls": [
+          {
+            "input": [
+              {
+                "role": "system",
+                "content": "Je beantwoordt Nederlandse vragen over fictieve films. Gebruik uitsluitend de meegeleverde broncontext.\nGeef maximaal 100 woorden: eerst het antwoord, daarna de onderbouwing met bron-ID's zoals [S2].\nVerzin geen castleden of relaties. Een ontbrekende relatie in de context betekent: onvoldoende bewijs voor die voorwaarde.\nsource_id onderbouwt de gevonden film; gedeelde_bron onderbouwt de gedeelde_film en de samenwerking daarin.\nEen acteur mag in een andere gedeelde film met Noor hebben gespeeld; Noor hoeft niet in de gevonden film te spelen.\nEen thematisch passende samenvatting bewijst geen samenwerking. Geef bij ontbrekend relatiebewijs dat expliciet aan."
+              },
+              {
+                "role": "user",
+                "content": "BRONCONTEXT (JSON-regels, letterlijk opgehaald):\n{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 1.0, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}\n{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.999446155710091, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}\nEINDE BRONCONTEXT\nVoorbeelden: \nBEANTWOORD NU DEZE VRAAG:\nWelke films gaan over iemand die onder een andere identiteit leeft? Leg uit waarom."
+              }
+            ],
+            "system_instruction": null,
+            "output": "De films \"Schaduwspel\" en \"Tweede Naam\" gaan over iemand die onder een andere identiteit leeft.\n\nIn \"Schaduwspel\" neemt een koerier een andere naam aan om de dader te vinden die zijn identiteit steelt [S4]. In \"Tweede Naam\" bouwt een vrouw een nieuw leven op onder andermans naam na een vlucht [S2]."
+          }
+        ],
+        "antwoord": "De films \"Schaduwspel\" en \"Tweede Naam\" gaan over iemand die onder een andere identiteit leeft.\n\nIn \"Schaduwspel\" neemt een koerier een andere naam aan om de dader te vinden die zijn identiteit steelt [S4]. In \"Tweede Naam\" bouwt een vrouw een nieuw leven op onder andermans naam na een vlucht [S2]."
+      },
+      "VectorCypher": {
+        "vraag": "Welke film gaat over iemand die onder een andere identiteit leeft én heeft een acteur die met Noor samenspeelde? Onderbouw je antwoord.",
+        "config": {
+          "top_k": 2,
+          "query_params": {
+            "noor_id": "P27"
+          }
+        },
+        "zoekqueries": [
+          {
+            "cypher": "CYPHER 25 MATCH (node:`Movie`) SEARCH node IN (VECTOR INDEX `film_vector` FOR $query_vector LIMIT $top_k * $effective_search_ratio) SCORE AS score WITH node, score ORDER BY score DESC LIMIT $top_k MATCH (noor:Person {person_id: $noor_id})-[:ACTED_IN]->(gedeeld:Movie)\n      <-[:ACTED_IN]-(acteur:Person)-[:ACTED_IN]->(node)\nWHERE acteur <> noor\nRETURN node.movie_id AS movie_id, node.title AS title,\n       node.samenvatting AS samenvatting, node.source_id AS source_id,\n       score, acteur.name AS acteur, acteur.person_id AS acteur_id,\n       gedeeld.title AS gedeelde_film, gedeeld.movie_id AS gedeelde_film_id,\n       gedeeld.source_id AS gedeelde_bron, noor.name AS noor\nORDER BY score DESC, movie_id, acteur_id",
+            "parameters": {
+              "top_k": 2,
+              "effective_search_ratio": 1,
+              "vector_index_name": "film_vector",
+              "query_vector": {
+                "vector_dimensie": 768,
+                "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+              },
+              "noor_id": "P27"
+            }
+          }
+        ],
+        "items": [
+          {
+            "content": "{\"acteur\": \"Amir\", \"acteur_id\": \"P28\", \"gedeelde_bron\": \"S1\", \"gedeelde_film\": \"Laatste Ronde\", \"gedeelde_film_id\": \"M1\", \"movie_id\": \"M2\", \"noor\": \"Noor\", \"relatiebewijs\": [\"Amir speelt in Tweede Naam [S2].\", \"Amir en Noor spelen beiden in Laatste Ronde [S1].\"], \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.7314444780349731, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+            "metadata": {
+              "movie_id": "M2",
+              "source_id": "S2",
+              "score": 0.7314444780349731
+            }
+          }
+        ],
+        "metadata": {
+          "query_vector": {
+            "vector_dimensie": 768,
+            "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+          },
+          "__retriever": "VectorCypherRetriever"
+        },
+        "exacte_context": "{\"acteur\": \"Amir\", \"acteur_id\": \"P28\", \"gedeelde_bron\": \"S1\", \"gedeelde_film\": \"Laatste Ronde\", \"gedeelde_film_id\": \"M1\", \"movie_id\": \"M2\", \"noor\": \"Noor\", \"relatiebewijs\": [\"Amir speelt in Tweede Naam [S2].\", \"Amir en Noor spelen beiden in Laatste Ronde [S1].\"], \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.7314444780349731, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+        "modelcalls": [
+          {
+            "input": [
+              {
+                "role": "system",
+                "content": "Je beantwoordt Nederlandse vragen over fictieve films. Gebruik uitsluitend de meegeleverde broncontext.\nGeef maximaal 100 woorden: eerst het antwoord, daarna de onderbouwing met bron-ID's zoals [S2].\nVerzin geen castleden of relaties. Een ontbrekende relatie in de context betekent: onvoldoende bewijs voor die voorwaarde.\nsource_id onderbouwt de gevonden film; gedeelde_bron onderbouwt de gedeelde_film en de samenwerking daarin.\nEen acteur mag in een andere gedeelde film met Noor hebben gespeeld; Noor hoeft niet in de gevonden film te spelen.\nEen thematisch passende samenvatting bewijst geen samenwerking. Geef bij ontbrekend relatiebewijs dat expliciet aan."
+              },
+              {
+                "role": "user",
+                "content": "BRONCONTEXT (JSON-regels, letterlijk opgehaald):\n{\"acteur\": \"Amir\", \"acteur_id\": \"P28\", \"gedeelde_bron\": \"S1\", \"gedeelde_film\": \"Laatste Ronde\", \"gedeelde_film_id\": \"M1\", \"movie_id\": \"M2\", \"noor\": \"Noor\", \"relatiebewijs\": [\"Amir speelt in Tweede Naam [S2].\", \"Amir en Noor spelen beiden in Laatste Ronde [S1].\"], \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.7314444780349731, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}\nEINDE BRONCONTEXT\nVoorbeelden: \nBEANTWOORD NU DEZE VRAAG:\nWelke film gaat over iemand die onder een andere identiteit leeft én heeft een acteur die met Noor samenspeelde? Onderbouw je antwoord."
+              }
+            ],
+            "system_instruction": null,
+            "output": "De film die hieraan voldoet is Tweede Naam.\n\nDe film gaat over een vrouw die een nieuw leven opbouwt onder andermans naam [S2]. De acteur Amir speelt in deze film [S2] en hij heeft met Noor samengespeeld in de film Laatste Ronde [S1]."
+          }
+        ],
+        "antwoord": "De film die hieraan voldoet is Tweede Naam.\n\nDe film gaat over een vrouw die een nieuw leven opbouwt onder andermans naam [S2]. De acteur Amir speelt in deze film [S2] en hij heeft met Noor samengespeeld in de film Laatste Ronde [S1]."
+      },
+      "HybridCypher": {
+        "vraag": "Welke film gaat over iemand die onder een andere identiteit leeft én heeft een acteur die met Noor samenspeelde? Onderbouw je antwoord.",
+        "config": {
+          "top_k": 2,
+          "query_params": {
+            "noor_id": "P27"
+          }
+        },
+        "zoekqueries": [
+          {
+            "cypher": "CYPHER 25 CALL () { MATCH (node:`Movie`) SEARCH node IN (VECTOR INDEX `film_vector` FOR $query_vector LIMIT $top_k * $effective_search_ratio) SCORE AS score WITH collect({node:node, score:score}) AS nodes, max(score) AS vector_index_max_score UNWIND nodes AS n RETURN n.node AS node, (n.score / vector_index_max_score) AS score UNION CALL db.index.fulltext.queryNodes($fulltext_index_name, $query_text, {limit: $top_k}) YIELD node, score WITH collect({node:node, score:score}) AS nodes, max(score) AS ft_index_max_score UNWIND nodes AS n RETURN n.node AS node, (n.score / ft_index_max_score) AS score } WITH node, max(score) AS score ORDER BY score DESC LIMIT $top_k MATCH (noor:Person {person_id: $noor_id})-[:ACTED_IN]->(gedeeld:Movie)\n      <-[:ACTED_IN]-(acteur:Person)-[:ACTED_IN]->(node)\nWHERE acteur <> noor\nRETURN node.movie_id AS movie_id, node.title AS title,\n       node.samenvatting AS samenvatting, node.source_id AS source_id,\n       score, acteur.name AS acteur, acteur.person_id AS acteur_id,\n       gedeeld.title AS gedeelde_film, gedeeld.movie_id AS gedeelde_film_id,\n       gedeeld.source_id AS gedeelde_bron, noor.name AS noor\nORDER BY score DESC, movie_id, acteur_id",
+            "parameters": {
+              "query_text": "Welke film gaat over iemand die onder een andere identiteit leeft én heeft een acteur die met Noor samenspeelde? Onderbouw je antwoord.",
+              "top_k": 2,
+              "effective_search_ratio": 1,
+              "vector_index_name": "film_vector",
+              "fulltext_index_name": "movie_text",
+              "query_vector": {
+                "vector_dimensie": 768,
+                "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+              },
+              "noor_id": "P27"
+            }
+          }
+        ],
+        "items": [
+          {
+            "content": "{\"acteur\": \"Amir\", \"acteur_id\": \"P28\", \"gedeelde_bron\": \"S1\", \"gedeelde_film\": \"Laatste Ronde\", \"gedeelde_film_id\": \"M1\", \"movie_id\": \"M2\", \"noor\": \"Noor\", \"relatiebewijs\": [\"Amir speelt in Tweede Naam [S2].\", \"Amir en Noor spelen beiden in Laatste Ronde [S1].\"], \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 1.0, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+            "metadata": {
+              "movie_id": "M2",
+              "source_id": "S2",
+              "score": 1.0
+            }
+          }
+        ],
+        "metadata": {
+          "query_vector": {
+            "vector_dimensie": 768,
+            "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+          },
+          "__retriever": "HybridCypherRetriever"
+        },
+        "exacte_context": "{\"acteur\": \"Amir\", \"acteur_id\": \"P28\", \"gedeelde_bron\": \"S1\", \"gedeelde_film\": \"Laatste Ronde\", \"gedeelde_film_id\": \"M1\", \"movie_id\": \"M2\", \"noor\": \"Noor\", \"relatiebewijs\": [\"Amir speelt in Tweede Naam [S2].\", \"Amir en Noor spelen beiden in Laatste Ronde [S1].\"], \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 1.0, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+        "modelcalls": [
+          {
+            "input": [
+              {
+                "role": "system",
+                "content": "Je beantwoordt Nederlandse vragen over fictieve films. Gebruik uitsluitend de meegeleverde broncontext.\nGeef maximaal 100 woorden: eerst het antwoord, daarna de onderbouwing met bron-ID's zoals [S2].\nVerzin geen castleden of relaties. Een ontbrekende relatie in de context betekent: onvoldoende bewijs voor die voorwaarde.\nsource_id onderbouwt de gevonden film; gedeelde_bron onderbouwt de gedeelde_film en de samenwerking daarin.\nEen acteur mag in een andere gedeelde film met Noor hebben gespeeld; Noor hoeft niet in de gevonden film te spelen.\nEen thematisch passende samenvatting bewijst geen samenwerking. Geef bij ontbrekend relatiebewijs dat expliciet aan."
+              },
+              {
+                "role": "user",
+                "content": "BRONCONTEXT (JSON-regels, letterlijk opgehaald):\n{\"acteur\": \"Amir\", \"acteur_id\": \"P28\", \"gedeelde_bron\": \"S1\", \"gedeelde_film\": \"Laatste Ronde\", \"gedeelde_film_id\": \"M1\", \"movie_id\": \"M2\", \"noor\": \"Noor\", \"relatiebewijs\": [\"Amir speelt in Tweede Naam [S2].\", \"Amir en Noor spelen beiden in Laatste Ronde [S1].\"], \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 1.0, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}\nEINDE BRONCONTEXT\nVoorbeelden: \nBEANTWOORD NU DEZE VRAAG:\nWelke film gaat over iemand die onder een andere identiteit leeft én heeft een acteur die met Noor samenspeelde? Onderbouw je antwoord."
+              }
+            ],
+            "system_instruction": null,
+            "output": "De film is Tweede Naam.\n\nDeze film gaat over een vrouw die een nieuw leven opbouwt onder andermans naam [S2]. De acteur Amir speelt in deze film [S2] en hij heeft met Noor samengespeeld in de film Laatste Ronde [S1]."
+          }
+        ],
+        "antwoord": "De film is Tweede Naam.\n\nDeze film gaat over een vrouw die een nieuw leven opbouwt onder andermans naam [S2]. De acteur Amir speelt in deze film [S2] en hij heeft met Noor samengespeeld in de film Laatste Ronde [S1]."
+      },
+      "Text2Cypher": {
+        "vraag": "Met wie speelde Noor samen in een film?",
+        "config": {},
+        "zoekqueries": [
+          {
+            "cypher": "EXPLAIN MATCH (noor:Person {person_id: 'P27'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(collega:Person)\nWHERE noor <> collega\nRETURN DISTINCT collega.person_id AS person_id, collega.name AS name, m.source_id AS source_id, noor.name AS noor, m.title AS gedeelde_film\nORDER BY name, source_id\n",
+            "parameters": {}
+          },
+          {
+            "cypher": "MATCH (noor:Person {person_id: 'P27'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(collega:Person)\nWHERE noor <> collega\nRETURN DISTINCT collega.person_id AS person_id, collega.name AS name, m.source_id AS source_id, noor.name AS noor, m.title AS gedeelde_film\nORDER BY name, source_id\n",
+            "parameters": {}
+          }
+        ],
+        "items": [
+          {
+            "content": "{\"gedeelde_film\": \"Laatste Ronde\", \"name\": \"Amir\", \"noor\": \"Noor\", \"person_id\": \"P28\", \"relatiebewijs\": [\"Amir en Noor spelen beiden in Laatste Ronde [S1].\"], \"source_id\": \"S1\"}",
+            "metadata": {
+              "source_id": "S1"
+            }
+          }
+        ],
+        "metadata": {
+          "cypher": "MATCH (noor:Person {person_id: 'P27'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(collega:Person)\nWHERE noor <> collega\nRETURN DISTINCT collega.person_id AS person_id, collega.name AS name, m.source_id AS source_id, noor.name AS noor, m.title AS gedeelde_film\nORDER BY name, source_id\n",
+          "__retriever": "Text2CypherRetriever"
+        },
+        "exacte_context": "{\"gedeelde_film\": \"Laatste Ronde\", \"name\": \"Amir\", \"noor\": \"Noor\", \"person_id\": \"P28\", \"relatiebewijs\": [\"Amir en Noor spelen beiden in Laatste Ronde [S1].\"], \"source_id\": \"S1\"}",
+        "modelcalls": [
+          {
+            "input": "Vertaal de vraag naar precies één leesbare Cypher-leesquery.\nGebruik alleen onderstaand schema. Geen mutaties, procedures of dynamische query-uitvoering.\nGeef uitsluitend de query terug. Gebruik voor Noor person_id 'P27'.\nBij vragen naar collega's: sluit Noor uit, verwijder dubbelen en sorteer stabiel.\nRetourneer precies de kolommen person_id, name, source_id, noor en gedeelde_film.\nsource_id is de bron-ID van de gedeelde film; noor is de naam van de startpersoon;\ngedeelde_film is de titel van de gedeelde film. Zo is de betekenis van de opgehaalde feiten expliciet.\nSchema:\nNode properties:\nPerson {person_id: STRING, name: STRING}\nMovie {movie_id: STRING, title: STRING, genre: STRING, samenvatting: STRING, source_id: STRING, embedding: LIST<FLOAT>}\nRelationships:\n(:Person)-[:ACTED_IN]->(:Movie)\nConstraints: Person.person_id is uniek; Movie.movie_id is uniek.\nGenre is een property; er bestaat geen Genre-label.\nZakelijke identifier voor Noor in deze demo: P27. Dit is geen interne Neo4j-ID.\nVoorbeelden:\n\nVraag:\nMet wie speelde Noor samen in een film?",
+            "system_instruction": null,
+            "output": "```cypher\nMATCH (noor:Person {person_id: 'P27'})-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(collega:Person)\nWHERE noor <> collega\nRETURN DISTINCT collega.person_id AS person_id, collega.name AS name, m.source_id AS source_id, noor.name AS noor, m.title AS gedeelde_film\nORDER BY name, source_id\n```"
+          },
+          {
+            "input": [
+              {
+                "role": "system",
+                "content": "Je beantwoordt Nederlandse vragen over fictieve films. Gebruik uitsluitend de meegeleverde broncontext.\nGeef maximaal 100 woorden: eerst het antwoord, daarna de onderbouwing met bron-ID's zoals [S2].\nVerzin geen castleden of relaties. Een ontbrekende relatie in de context betekent: onvoldoende bewijs voor die voorwaarde.\nsource_id onderbouwt de gevonden film; gedeelde_bron onderbouwt de gedeelde_film en de samenwerking daarin.\nEen acteur mag in een andere gedeelde film met Noor hebben gespeeld; Noor hoeft niet in de gevonden film te spelen.\nEen thematisch passende samenvatting bewijst geen samenwerking. Geef bij ontbrekend relatiebewijs dat expliciet aan."
+              },
+              {
+                "role": "user",
+                "content": "BRONCONTEXT (JSON-regels, letterlijk opgehaald):\n{\"gedeelde_film\": \"Laatste Ronde\", \"name\": \"Amir\", \"noor\": \"Noor\", \"person_id\": \"P28\", \"relatiebewijs\": [\"Amir en Noor spelen beiden in Laatste Ronde [S1].\"], \"source_id\": \"S1\"}\nEINDE BRONCONTEXT\nVoorbeelden: \nBEANTWOORD NU DEZE VRAAG:\nMet wie speelde Noor samen in een film?"
+              }
+            ],
+            "system_instruction": null,
+            "output": "Noor speelde samen met Amir in de film \"Laatste Ronde\" [S1]."
+          }
+        ],
+        "antwoord": "Noor speelde samen met Amir in de film \"Laatste Ronde\" [S1]."
+      }
+    },
+    "kandidaten_vraag_C": {
+      "Vector": {
+        "items": [
+          {
+            "content": "{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.7314444780349731, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+            "metadata": {
+              "movie_id": "M2",
+              "source_id": "S2",
+              "score": 0.7314444780349731
+            }
+          },
+          {
+            "content": "{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 0.7253506779670715, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}",
+            "metadata": {
+              "movie_id": "M4",
+              "source_id": "S4",
+              "score": 0.7253506779670715
+            }
+          }
+        ],
+        "metadata": {
+          "query_vector": {
+            "vector_dimensie": 768,
+            "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+          },
+          "__retriever": "VectorRetriever"
+        },
+        "zoekqueries": [
+          {
+            "cypher": "CALL dbms.components()",
+            "parameters": {}
+          },
+          {
+            "cypher": "CYPHER 25 MATCH (node:`Movie`) SEARCH node IN (VECTOR INDEX `film_vector` FOR $query_vector LIMIT $top_k * $effective_search_ratio) SCORE AS score WITH node, score ORDER BY score DESC LIMIT $top_k RETURN node {.movie_id, .title, .genre, .samenvatting, .source_id} AS node, labels(node) AS nodeLabels, elementId(node) AS elementId, elementId(node) AS id, score",
+            "parameters": {
+              "top_k": 2,
+              "effective_search_ratio": 1,
+              "vector_index_name": "film_vector",
+              "query_vector": {
+                "vector_dimensie": 768,
+                "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+              }
+            }
+          }
+        ]
+      },
+      "Hybrid": {
+        "items": [
+          {
+            "content": "{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 1.0, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+            "metadata": {
+              "movie_id": "M2",
+              "source_id": "S2",
+              "score": 1.0
+            }
+          },
+          {
+            "content": "{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 1.0, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}",
+            "metadata": {
+              "movie_id": "M4",
+              "source_id": "S4",
+              "score": 1.0
+            }
+          }
+        ],
+        "metadata": {
+          "query_vector": {
+            "vector_dimensie": 768,
+            "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+          },
+          "__retriever": "HybridRetriever"
+        },
+        "zoekqueries": [
+          {
+            "cypher": "CYPHER 25 CALL () { MATCH (node:`Movie`) SEARCH node IN (VECTOR INDEX `film_vector` FOR $query_vector LIMIT $top_k * $effective_search_ratio) SCORE AS score WITH collect({node:node, score:score}) AS nodes, max(score) AS vector_index_max_score UNWIND nodes AS n RETURN n.node AS node, (n.score / vector_index_max_score) AS score UNION CALL db.index.fulltext.queryNodes($fulltext_index_name, $query_text, {limit: $top_k}) YIELD node, score WITH collect({node:node, score:score}) AS nodes, max(score) AS ft_index_max_score UNWIND nodes AS n RETURN n.node AS node, (n.score / ft_index_max_score) AS score } WITH node, max(score) AS score ORDER BY score DESC LIMIT $top_k RETURN node {.movie_id, .title, .genre, .samenvatting, .source_id} AS node, labels(node) AS nodeLabels, elementId(node) AS elementId, elementId(node) AS id, score",
+            "parameters": {
+              "query_text": "Welke film gaat over iemand die onder een andere identiteit leeft én heeft een acteur die met Noor samenspeelde? Onderbouw je antwoord.",
+              "top_k": 2,
+              "effective_search_ratio": 1,
+              "vector_index_name": "film_vector",
+              "fulltext_index_name": "movie_text",
+              "query_vector": {
+                "vector_dimensie": 768,
+                "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "vector_zonder_relatiebewijs": {
+      "vraag": "Welke film gaat over iemand die onder een andere identiteit leeft én heeft een acteur die met Noor samenspeelde? Onderbouw je antwoord.",
+      "exacte_context": "{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.7314444780349731, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}\n{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 0.7253506779670715, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}",
+      "antwoord": "Er is onvoldoende bewijs om te bepalen welke film aan deze voorwaarde voldoet.\n\nHoewel zowel \"Tweede Naam\" [S2] (een vrouw die onder andermans naam leeft) als \"Schaduwspel\" [S4] (een koerier die een andere naam aanneemt) gaan over iemand die onder een andere identiteit leeft, bevat de verstrekte context geen informatie over acteurs of hun samenwerking met Noor. Er is dus geen bewijs voor de tweede voorwaarde.",
+      "zoekqueries": [
+        {
+          "cypher": "CYPHER 25 MATCH (node:`Movie`) SEARCH node IN (VECTOR INDEX `film_vector` FOR $query_vector LIMIT $top_k * $effective_search_ratio) SCORE AS score WITH node, score ORDER BY score DESC LIMIT $top_k RETURN node {.movie_id, .title, .genre, .samenvatting, .source_id} AS node, labels(node) AS nodeLabels, elementId(node) AS elementId, elementId(node) AS id, score",
+          "parameters": {
+            "top_k": 2,
+            "effective_search_ratio": 1,
+            "vector_index_name": "film_vector",
+            "query_vector": {
+              "vector_dimensie": 768,
+              "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+            }
+          }
+        }
+      ]
+    },
+    "genre_filter": {
+      "items": [
+        {
+          "content": "{\"genre\": \"thriller\", \"movie_id\": \"M4\", \"samenvatting\": \"Een koerier ontdekt dat iemand zijn identiteit gebruikt. Hij neemt zelf een andere naam aan om de dader te vinden en raakt steeds verder verstrikt in een leven dat niet van hem is.\", \"score\": 0.7517247200012207, \"source_id\": \"S4\", \"title\": \"Schaduwspel\"}",
+          "metadata": {
+            "movie_id": "M4",
+            "source_id": "S4",
+            "score": 0.7517247200012207
+          }
+        },
+        {
+          "content": "{\"genre\": \"thriller\", \"movie_id\": \"M2\", \"samenvatting\": \"Een vrouw bouwt na een vlucht een nieuw leven op onder andermans naam. Wanneer haar verleden opduikt, moet ze kiezen tussen haar aangenomen identiteit en de waarheid.\", \"score\": 0.7513083815574646, \"source_id\": \"S2\", \"title\": \"Tweede Naam\"}",
+          "metadata": {
+            "movie_id": "M2",
+            "source_id": "S2",
+            "score": 0.7513083815574646
+          }
+        }
+      ],
+      "metadata": {
+        "query_vector": {
+          "vector_dimensie": 768,
+          "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+        },
+        "__retriever": "VectorRetriever"
+      },
+      "zoekqueries": [
+        {
+          "cypher": "MATCH (node:`Movie`) WHERE node.`embedding` IS NOT NULL AND size(node.`embedding`) = toInteger($embedding_dimension) AND (node.genre = $param_0) WITH node, vector.similarity.cosine(node.`embedding`, $query_vector) AS score ORDER BY score DESC, elementId(node) LIMIT $top_k RETURN node {.movie_id, .title, .genre, .samenvatting, .source_id} AS node, labels(node) AS nodeLabels, elementId(node) AS elementId, elementId(node) AS id, score",
+          "parameters": {
+            "top_k": 4,
+            "effective_search_ratio": 1,
+            "vector_index_name": "film_vector",
+            "query_vector": {
+              "vector_dimensie": 768,
+              "weergave": "vectorwaarden weggelaten; geen wijziging van zoekvector"
+            },
+            "param_0": "thriller",
+            "embedding_dimension": 768
+          }
+        }
+      ],
+      "filter": {
+        "genre": {
+          "$eq": "thriller"
+        }
+      }
+    }
+  }
+}
